@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\KategoriArtikel;
+use App\Berita;
 use Illuminate\Http\Request;
 
-class KategoriArtikelAPIController extends Controller
+class BeritaAPIController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,9 +14,9 @@ class KategoriArtikelAPIController extends Controller
      */
     public function index()
     {
-        $kategoriartikels=KategoriArtikel::all();
+        $beritas=Berita::all();
 
-        return $kategoriartikels;
+        return $beritas;
 
     }
 
@@ -30,9 +30,9 @@ class KategoriArtikelAPIController extends Controller
     {
         $input=$request->all();
 
-        $kategoriartikel=KategoriArtikel::create($input);
+        $berita=Berita::create($input);
 
-        return $kategoriartikel;
+        return $berita;
     }
 
     /**
@@ -43,9 +43,9 @@ class KategoriArtikelAPIController extends Controller
      */
     public function show($id)
     {
-        $kategoriartikel=KategoriArtikel::find($id);
+        $berita=Berita::find($id);
 
-        return $kategoriartikel;
+        return $berita;
     }
 
     /**
@@ -71,16 +71,16 @@ class KategoriArtikelAPIController extends Controller
         $input=$request->all();
 
         
-        $kategoriartikel=KategoriArtikel::find($id);
+        $berita=Berita::find($id);
 
         
-        if(empty($kategoriartikel)){
+        if(empty($berita)){
             return response()->json(['message'=>'data tidak ditemukan'], 404);
         }
 
-        $kategoriartikel->update($input);
+        $berita>update($input);
         
-        return response()->json($kategoriartikel);
+        return response()->json($Berita);
     }
 
     /**
@@ -91,15 +91,15 @@ class KategoriArtikelAPIController extends Controller
      */
     public function destroy($id)
     {
-        $kategoriartikel=KategoriArtikel::find($id);
+        $berita=Berita::find($id);
 
         
-        if(empty($kategoriartikel)){
+        if(empty($berita)){
             return response()->json(['message'=>'data tidak ditemukan'], 404);
         }
 
         
-        $kategoriartikel->delete();
+        $berita->delete();
 
         return response()->json(['message'=>'data telah dihapus']);
     }

@@ -2,21 +2,22 @@
 
 namespace App\Http\Controllers;
 
-use App\KategoriArtikel;
+
+use App\KategoriPengumuman;
 use Illuminate\Http\Request;
 
-class KategoriArtikelAPIController extends Controller
+class KategoriPengumumanController extends Controller
 {
-    /**
+ /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
     public function index()
     {
-        $kategoriartikels=KategoriArtikel::all();
+        $pengumumans=KategoriPengumuman::all();
 
-        return $kategoriartikels;
+        return $pengumumans;
 
     }
 
@@ -30,9 +31,9 @@ class KategoriArtikelAPIController extends Controller
     {
         $input=$request->all();
 
-        $kategoriartikel=KategoriArtikel::create($input);
+        $kategoripengumumans=KategoriPengumuman::create($input);
 
-        return $kategoriartikel;
+        return $kategoripengumumans;
     }
 
     /**
@@ -43,9 +44,9 @@ class KategoriArtikelAPIController extends Controller
      */
     public function show($id)
     {
-        $kategoriartikel=KategoriArtikel::find($id);
+        $kategoripengumuman=KategoriPengumuman::find($id);
 
-        return $kategoriartikel;
+        return $kategoripengumuman;
     }
 
     /**
@@ -71,16 +72,16 @@ class KategoriArtikelAPIController extends Controller
         $input=$request->all();
 
         
-        $kategoriartikel=KategoriArtikel::find($id);
+        $kategoripengumuman=KategoriPengumuman::find($id);
 
         
-        if(empty($kategoriartikel)){
+        if(empty($kategoripengumuman)){
             return response()->json(['message'=>'data tidak ditemukan'], 404);
         }
 
-        $kategoriartikel->update($input);
+        $kategoripengumuman->update($input);
         
-        return response()->json($kategoriartikel);
+        return response()->json($kategoripengumuman);
     }
 
     /**
@@ -91,15 +92,15 @@ class KategoriArtikelAPIController extends Controller
      */
     public function destroy($id)
     {
-        $kategoriartikel=KategoriArtikel::find($id);
+        $kategoripengumuman=KategoriPengumuman::find($id);
 
         
-        if(empty($kategoriartikel)){
+        if(empty($kategoripengumuman)){
             return response()->json(['message'=>'data tidak ditemukan'], 404);
         }
 
         
-        $kategoriartikel->delete();
+        $kategoripengumuman->delete();
 
         return response()->json(['message'=>'data telah dihapus']);
     }

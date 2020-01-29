@@ -2,21 +2,21 @@
 
 namespace App\Http\Controllers;
 
-use App\KategoriArtikel;
+use App\Galeri;
 use Illuminate\Http\Request;
 
-class KategoriArtikelAPIController extends Controller
+class GaleriAPIController extends Controller
 {
-    /**
+     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
     public function index()
     {
-        $kategoriartikels=KategoriArtikel::all();
+        $galeri=Galeri::all();
 
-        return $kategoriartikels;
+        return $galeri;
 
     }
 
@@ -30,9 +30,9 @@ class KategoriArtikelAPIController extends Controller
     {
         $input=$request->all();
 
-        $kategoriartikel=KategoriArtikel::create($input);
+        $galeri=Galeri::create($input);
 
-        return $kategoriartikel;
+        return $galeri;
     }
 
     /**
@@ -43,9 +43,9 @@ class KategoriArtikelAPIController extends Controller
      */
     public function show($id)
     {
-        $kategoriartikel=KategoriArtikel::find($id);
+        $galeri=Galeri::find($id);
 
-        return $kategoriartikel;
+        return $galeri;
     }
 
     /**
@@ -71,16 +71,16 @@ class KategoriArtikelAPIController extends Controller
         $input=$request->all();
 
         
-        $kategoriartikel=KategoriArtikel::find($id);
+        $galeri=Galeri::find($id);
 
         
-        if(empty($kategoriartikel)){
+        if(empty($galeri)){
             return response()->json(['message'=>'data tidak ditemukan'], 404);
         }
 
-        $kategoriartikel->update($input);
+        $galeri->update($input);
         
-        return response()->json($kategoriartikel);
+        return response()->json($galeri);
     }
 
     /**
@@ -91,15 +91,15 @@ class KategoriArtikelAPIController extends Controller
      */
     public function destroy($id)
     {
-        $kategoriartikel=KategoriArtikel::find($id);
+        $galeri=Galeri::find($id);
 
         
-        if(empty($kategoriartikel)){
+        if(empty($galeri)){
             return response()->json(['message'=>'data tidak ditemukan'], 404);
         }
 
         
-        $kategoriartikel->delete();
+        $galeri->delete();
 
         return response()->json(['message'=>'data telah dihapus']);
     }

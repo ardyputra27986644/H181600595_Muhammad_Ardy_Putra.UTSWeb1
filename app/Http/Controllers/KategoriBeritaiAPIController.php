@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\KategoriArtikel;
+
+use App\KategoriBerita;
 use Illuminate\Http\Request;
 
-class KategoriArtikelAPIController extends Controller
+class KategoriBeritaiAPIController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,10 +15,17 @@ class KategoriArtikelAPIController extends Controller
      */
     public function index()
     {
-        $kategoriartikels=KategoriArtikel::all();
+        //
+    }
 
-        return $kategoriartikels;
-
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function create()
+    {
+        //
     }
 
     /**
@@ -28,11 +36,7 @@ class KategoriArtikelAPIController extends Controller
      */
     public function store(Request $request)
     {
-        $input=$request->all();
-
-        $kategoriartikel=KategoriArtikel::create($input);
-
-        return $kategoriartikel;
+        //
     }
 
     /**
@@ -43,9 +47,7 @@ class KategoriArtikelAPIController extends Controller
      */
     public function show($id)
     {
-        $kategoriartikel=KategoriArtikel::find($id);
-
-        return $kategoriartikel;
+        //
     }
 
     /**
@@ -60,7 +62,7 @@ class KategoriArtikelAPIController extends Controller
     }
 
     /**
-     * Update the specified resource in storage
+     * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  int  $id
@@ -68,19 +70,7 @@ class KategoriArtikelAPIController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $input=$request->all();
-
-        
-        $kategoriartikel=KategoriArtikel::find($id);
-
-        
-        if(empty($kategoriartikel)){
-            return response()->json(['message'=>'data tidak ditemukan'], 404);
-        }
-
-        $kategoriartikel->update($input);
-        
-        return response()->json($kategoriartikel);
+        //
     }
 
     /**
@@ -91,16 +81,6 @@ class KategoriArtikelAPIController extends Controller
      */
     public function destroy($id)
     {
-        $kategoriartikel=KategoriArtikel::find($id);
-
-        
-        if(empty($kategoriartikel)){
-            return response()->json(['message'=>'data tidak ditemukan'], 404);
-        }
-
-        
-        $kategoriartikel->delete();
-
-        return response()->json(['message'=>'data telah dihapus']);
+        //
     }
 }
